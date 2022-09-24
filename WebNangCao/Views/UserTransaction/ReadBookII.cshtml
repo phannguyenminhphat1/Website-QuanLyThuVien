@@ -1,0 +1,61 @@
+﻿@model WebNangCao.Models.tblBook
+
+@{
+    ViewBag.Title = "ReadBook";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/ReadALittleDetail.css" />
+    <title></title>
+
+</head>
+<body>
+    <div class="container">
+        <h3 class="title">
+            <span>@Model.BookTitle</span>
+        </h3>
+        <div class="e-book">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img src="@Url.Content("~/Content/Images/"+Model.Images)" />
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="font-size:19px">
+                    <div style="margin-bottom: 10px;" class="e-book--category">
+                        Loại sách:
+                        <span style="color:#31942e">@Model.BookCategory</span>
+                    </div>
+                    <div style="margin-bottom: 10px;" class="e-book--author">
+                        Tác giả:
+                        <span style="color:#31942e">@Model.BookAuthor</span>
+                    </div>
+                    <div style="margin-bottom: 10px;" class="e-book--category">
+                        Năm xuất bản:
+                        <span style="color: #31942e">@Model.Copyright</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="e-book--LitleCotent" style="color:#333333; margin: 15px 0; font-size:19px">
+                @Html.Raw(@Model.Images2)
+            </div>
+            <div style="margin: 15px 0">
+                @Html.ActionLink("Xem tiếp chương III", "ReadBookIII", "UserTransaction", new { bookId = Model.BookId }, new { @class = "", style = "text-decoration:none; color: blue; font-size: 18px" })
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+

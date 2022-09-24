@@ -1,0 +1,40 @@
+﻿#popup {
+    background: #ffffffa6;
+    position: fixed;
+    top: 0;
+    display: flex;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    bottom: 0;
+    right: 0;
+}
+.popup__box {
+    height: 120px;
+    background: white;
+    margin: auto;
+    width: 400px;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid #BFBFBF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+.title {
+    text-transform: uppercase;
+    color: #00635d;
+    padding:20px 0;
+    font-weight:680;
+}
+.e-book {
+    font-weight:350;
+    display: block;
+    overflow: hidden;
+    margin: 20px 0 20px 0;
+    color:#333;
+}
+.e-book img{
+    width:270px;
+    height:250px;
+}
+

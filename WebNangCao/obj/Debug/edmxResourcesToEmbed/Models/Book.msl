@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryyModel2StoreContainer" CdmEntityContainer="LibraryyEntities3">
+    <EntitySetMapping Name="tblBooks">
+      <EntityTypeMapping TypeName="LibraryyModel2.tblBook">
+        <MappingFragment StoreEntitySet="tblBooks">
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+          <ScalarProperty Name="BookCategory" ColumnName="BookCategory" />
+          <ScalarProperty Name="BookCopies" ColumnName="BookCopies" />
+          <ScalarProperty Name="BookAuthor" ColumnName="BookAuthor" />
+          <ScalarProperty Name="Copyright" ColumnName="Copyright" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Statuss" ColumnName="Statuss" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="Images1" ColumnName="Images1" />
+          <ScalarProperty Name="Images2" ColumnName="Images2" />
+          <ScalarProperty Name="Images3" ColumnName="Images3" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

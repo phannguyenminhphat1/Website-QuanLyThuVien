@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryyModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBooks">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookCopies" Type="int" />
+    <Property Name="BookAuthor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Copyright" Type="int" />
+    <Property Name="DateAdded" Type="char" MaxLength="10" />
+    <Property Name="Statuss" Type="nvarchar" MaxLength="50" />
+    <Property Name="Images" Type="nvarchar(max)" />
+    <Property Name="Descrip" Type="nvarchar" MaxLength="300" />
+    <Property Name="Images1" Type="nvarchar(max)" />
+    <Property Name="Images2" Type="nvarchar(max)" />
+    <Property Name="Images3" Type="nvarchar(max)" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="LibraryyModel2StoreContainer">
+    <EntitySet Name="tblBooks" EntityType="Self.tblBooks" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

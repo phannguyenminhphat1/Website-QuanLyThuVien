@@ -1,0 +1,29 @@
+﻿
+@using WebNangCao.Models
+@model IEnumerable<tblBook>
+
+<div class="">
+    <div class="row">
+        @foreach (var item in Model.Take(3))
+        {
+            <div class="col-4 item">
+
+                <div>
+                    <img src="@Url.Content("~/Content/Images/"+item.Images)" />
+                </div>
+                <div>
+                    <h4 style="margin-bottom:5px;font-weight:600">
+                        <a class="" style="font-size:20px;color:#00635d;" href="@Url.Action("ReadALittleBookUser","Borrow",new {id = item.BookId })">
+                            @item.BookTitle
+                        </a>
+                    </h4>
+                    <p style="font-size:14px">@item.Descrip</p>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+

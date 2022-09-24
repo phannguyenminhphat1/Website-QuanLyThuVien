@@ -1,0 +1,104 @@
+﻿@model WebNangCao.SoMuchModel.objBookAndListRelated
+@{
+    ViewBag.Title = "ReadALittleBookUser";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/messagebox.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Content/messagebox.js"></script>
+
+    <link rel="stylesheet" href="~/Content/ReadALittleDetail.css" />
+    <title></title>
+
+</head>
+<body>
+    <div class="container">
+        <h3 class="title">
+            <span>@Model.objBook.BookTitle</span>
+        </h3>
+        <div class="e-book">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <img src="@Url.Content("~/Content/Images/"+Model.objBook.Images)" />
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="font-size:19px">
+                    <div style="margin-bottom: 10px;" class="e-book--category">
+                        Loại sách:
+                        <span style="color:#31942e">@Model.objBook.BookCategory</span>
+                    </div>
+                    <div style="margin-bottom: 10px;" class="e-book--author">
+                        Tác giả:
+                        <span style="color:#31942e">@Model.objBook.BookAuthor</span>
+                    </div>
+                    <div style="margin-bottom: 10px;" class="e-book--category">
+                        Năm xuất bản:
+                        <span style="color: #31942e">@Model.objBook.Copyright</span>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <button id="btnDoc" class="btn btn-success" style="padding:8px 25px;">ĐỌC ONLINE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="e-book--LitleCotent" style="color:#333333; margin: 15px 0; font-size:19px">
+                @Html.Raw(@Model.objBook.Detail)
+            </div>
+
+        </div>
+        <div class="">
+            <h3 class="title">
+                <span style="font-weight:600;font-size:1.3rem">Sách cùng thể loại</span>
+            </h3>
+            <div class="row">
+                @foreach (var item in Model.listBookRelated)
+                {
+                    <div class="col-3" style="max-width:20%">
+                        <img style="width:100%;height:231px" src="@Url.Content("~/Content/Images/"+item.Images)" />
+                        <h4 style="margin-bottom:5px;font-weight:600">
+                            <a class="" style="font-size:16px;color:#00635d;" href="@Url.Action("ReadALittleDetail","TblBooks",new {id = item.BookId })">
+                                @item.BookTitle
+                            </a>
+                        </h4>
+                    </div>
+                
+                }
+            </div>
+        </div>
+
+    </div>
+
+
+
+    @*show Popup*@
+    <div id="displaynone" style="display:none;">
+        <div id="popup">
+            <div class="popup__box">
+                <p style="font-size:15px">HÃY MƯỢN SÁCH ĐỂ ĐỌC NHÉ !!!</p>
+                <button id="btnDong" class="btn btn-success">Đóng</button>
+                <a href="@Url.Action("Received","UserTransaction")"></a>
+            </div>1
+        </div>
+    </div>
+
+    @*/*JQUERY FOR POPUP*/*@
+    <script type="text/javascript">
+        $("#btnDoc").click(function () {
+            $("#displaynone").show();
+
+        })
+        $("#btnDong").click(function () {
+            $("#displaynone").hide();
+        })
+
+    </script>
+</body>
+</html>
+
+

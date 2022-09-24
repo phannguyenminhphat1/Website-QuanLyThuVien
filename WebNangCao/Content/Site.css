@@ -1,0 +1,57 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background:#fcfaf6;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/**MAIN*/
+.block__book {
+    overflow: hidden;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+.block__book-title {
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 5px;
+}
+.block__book-title span{
+    background: #e89126;
+    color: white;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 4px 20px 4px 20px;
+    border-radius: 4px;
+    line-height: 30px;
+}
+.item {
+    overflow: hidden;
+    
+    text-align: left;
+    font-size: 13px;
+    line-height: 22px;
+}
+.item img{
+    width: 100%;
+    height: 300px;
+    margin: 0px 0 10px 0;
+    
+}
+.block__book .col-4 {
+    max-width: 30% !important;
+}
+
