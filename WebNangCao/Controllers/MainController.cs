@@ -45,19 +45,16 @@ namespace WebNangCao.Controllers
             return View();
         }
 
-        // Returns about view.
         public ActionResult About()
         {
             return View();
         }
 
-        // Returns contact view.
         public ActionResult Contact()
         {
             return View();
         }
 
-        // Returns login view.
         public ActionResult Login()
         {
             return View();

@@ -20,14 +20,12 @@ namespace WebNangCao.Controllers
         {
             return View(bookDb.tblBooks.ToList());
         }
-        // GET: tblBooks Json
         public ActionResult GetAll()
         {
             var booklist = bookDb.tblBooks.ToList();
             return Json(new { data = booklist }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: tblBooks/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -42,15 +40,13 @@ namespace WebNangCao.Controllers
             return View(tblBook);
         }
 
-        // GET: tblBooks/Create
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: tblBooks/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -125,8 +121,6 @@ namespace WebNangCao.Controllers
             //return View(tblBook);
         }
 
-        // Remove the session datas which are used for alerts
-        // OperationAlert
         public ActionResult OperationAlert()
         {
             Session.Remove("operationMsg");
@@ -150,9 +144,7 @@ namespace WebNangCao.Controllers
             return View(tblBook);
         }
 
-        // POST: tblBooks/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -277,19 +269,16 @@ namespace WebNangCao.Controllers
         {
             return RedirectToAction("Home", "Main");
         }
-        // Returns about view.
         public ActionResult About()
         {
             return RedirectToAction("About", "Main");
         }
 
-        // Returns contact view.
         public ActionResult Contact()
         {
             return RedirectToAction("Contact", "Main");
         }
 
-        // Returns login view.
         public ActionResult Login()
         {
             return RedirectToAction("Login", "Main");

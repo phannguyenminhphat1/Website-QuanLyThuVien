@@ -19,7 +19,6 @@ namespace WebNangCao.Controllers
         private TransEntity transDb = new TransEntity();
 
 
-        // Returns user books borrow view, here user can request for a book.
         public ActionResult Index(int? userId, string userName)
         {
             if (userId == null)
@@ -37,7 +36,6 @@ namespace WebNangCao.Controllers
             return View(bookDb.tblBooks.ToList());
         }
 
-        // Returns user home view.
         public ActionResult UserHome()
         {
             /*Sách kỹ năng sống*/
@@ -71,50 +69,42 @@ namespace WebNangCao.Controllers
             return View();
         }
 
-        // Returns user about view.
         public ActionResult UserAbout()
         {
             return View();
         }
 
-        // Returns user contact view.
         public ActionResult UserContact()
         {
             return View();
         }
 
-        // Navbar menus.
-        // Redirected to index view of borrow controller with user id and username.
+       
         public ActionResult MenuBorrow()
         {
             return RedirectToAction("Index", "Borrow", new { userId = userId, userName = userName });
         }
 
-        // Redirected to Requested view of user transaction controller with user id.
         public ActionResult MenuRequested()
         {
             return RedirectToAction("Requested", "UserTransaction", new { userId = userId });
         }
 
-        // Redirected to Received view of user transaction controller with user id.
         public ActionResult MenuReceived()
         {
             Session.Remove("receivedBadge");
             return RedirectToAction("Received", "UserTransaction", new { userId = userId });
         }
 
-        // Redirected to Rejected view of user transaction controller with user id.
         public ActionResult MenuRejected()
         {
             Session.Remove("rejectedBadge");
             return RedirectToAction("Rejected", "UserTransaction", new { userId = userId });
         }
 
-        // Borrow the book, redirect to index view.
         public ActionResult Borrow(int? bookId)
         {
-            /*try
-            {*/
+            
             if (transDb.tblTransactions.Where(t => t.UserId == userId).Count() < 6)
             {
                 if (bookId != null)
@@ -156,15 +146,10 @@ namespace WebNangCao.Controllers
                 Session["requestMsg"] = "Sorry you cant take more than six books";
             }
             return RedirectToAction("Index", "Borrow", new { userId = userId, userName = userName });
-            /*}
-            catch (Exception)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }*/
+            
         }
 
-        // Remove the session datas which are used for alerts
-        // ReqAlert
+        
         public ActionResult RequestAlert()
         {
             Session.Remove("requestMsg");

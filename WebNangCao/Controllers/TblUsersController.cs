@@ -49,8 +49,7 @@ namespace WebNangCao.Controllers
         }
 
         // POST: tblUsers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UserId,UserName,UserGender,UserEmail,UserPass")] tblUser tblUser)
@@ -76,8 +75,6 @@ namespace WebNangCao.Controllers
             return View(tblUser);
         }
 
-        // Remove the session datas which are used for alerts
-        // OperationAlert
         public ActionResult OperationAlert()
         {
             Session.Remove("operationMsg");
@@ -100,8 +97,7 @@ namespace WebNangCao.Controllers
         }
 
         // POST: tblUsers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UserId,UserName,UserGender,UserDep,UserAdmNo,UserEmail,UserPass")] tblUser tblUser)

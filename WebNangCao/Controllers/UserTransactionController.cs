@@ -10,13 +10,12 @@ namespace WebNangCao.Controllers
 {
     public class UserTransactionController : Controller
     {
-        static int userId;      // Used to store user id
+        static int userId;    
 
         TransEntity transDb = new TransEntity();
         BookEntity bookDb = new BookEntity();
         private UserEntity userDb = new UserEntity();
 
-        // Returns user requested view, here user can cancel request.
         public ActionResult Requested(int? userId)
         {
             if (userId == null)
@@ -41,11 +40,9 @@ namespace WebNangCao.Controllers
             return View(requestList.ToList());
         }
 
-        // Cancel book request, redirected to requested
         public ActionResult DeleteRequest(int? tranId)
         {
-            /*try
-            {*/
+            
             if (tranId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -61,14 +58,9 @@ namespace WebNangCao.Controllers
             transDb.tblTransactions.Remove(transaction);
             transDb.SaveChanges();
             return RedirectToAction("Requested", "UserTransaction", new { userId = userId });
-            /* }
-             catch (Exception)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-             }*/
+            
         }
 
-        // Returns user rejected view, here user can rerequest and cancel book request.
         public ActionResult Rejected(int? userId)
         {
             if (userId == null)
@@ -93,11 +85,9 @@ namespace WebNangCao.Controllers
             return View(rejectedList.ToList());
         }
 
-        // Rerequest book request, redirected to rejected
         public ActionResult RerequestRejected(int? tranId)
         {
-            /*try
-            {*/
+           
             if (tranId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,18 +104,12 @@ namespace WebNangCao.Controllers
             bookDb.SaveChanges();
             transDb.SaveChanges();
             return RedirectToAction("Rejected", "UserTransaction", new { userId = userId });
-            /*}
-            catch (Exception)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }*/
+            
         }
 
-        // Cancel book request, redirected to rejected
         public ActionResult CancelRejected(int? tranId)
         {
-            /*try
-            {*/
+            
             if (tranId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -141,14 +125,10 @@ namespace WebNangCao.Controllers
             transDb.tblTransactions.Remove(transaction);
             transDb.SaveChanges();
             return RedirectToAction("Rejected", "UserTransaction", new { userId = userId });
-            /* }
-             catch (Exception)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-             }*/
+            
         }
 
-        // Returns user received view, here user can read and return the book, redirected to received
+        
         public ActionResult Received(int? userId)
         {
             if (userId == null)
@@ -173,11 +153,9 @@ namespace WebNangCao.Controllers
             return View(receivedList.ToList());
         }
 
-        // Return book
         public ActionResult ReturnReceived(int? tranId)
         {
-            /*try
-            {*/
+            
             if (tranId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -191,11 +169,7 @@ namespace WebNangCao.Controllers
             transaction.TranStatus = "Returned";
             transDb.SaveChanges();
             return RedirectToAction("Received", "UserTransaction", new { userId = userId });
-            /* }
-             catch (Exception)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-             }*/
+            
         }
         public ActionResult ReadBook(int? bookId)
         {
